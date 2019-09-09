@@ -729,6 +729,11 @@ class ExtendedPdoTest extends \PHPUnit_Framework_TestCase
         $this->assertSame('[fo[o]', $pdo->quoteName('fo[o'));
         $this->assertSame('[foo].[[bar][]', $pdo->quoteName('foo.[bar]'));
 
+        $pdo = new ExtendedPdo('dblib:bogus');
+        $this->assertSame('[fo][o]', $pdo->quoteName('fo]o'));
+        $this->assertSame('[fo[o]', $pdo->quoteName('fo[o'));
+        $this->assertSame('[foo].[[bar][]', $pdo->quoteName('foo.[bar]'));
+
     }
 
     public function testGetAttribute()

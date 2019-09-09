@@ -966,6 +966,7 @@ abstract class AbstractExtendedPdo extends PDO implements ExtendedPdoInterface
                 $this->quoteNameEscapeRepl = '``';
                 return;
             case 'sqlsrv':
+            case 'dblib':
                 $this->quoteNamePrefix = '[';
                 $this->quoteNameSuffix = ']';
                 $this->quoteNameEscapeFind = ']';
